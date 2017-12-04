@@ -1,13 +1,26 @@
 /** This is an auto-generated file. Do not edit.
  */
 
-#include "bundle.hpp"
+#include "bundle.h"
 
 // here comes the fun. take a coffee {
 
 // ensure some libs evaluate the wrong directive too {
 #if defined(_WIN32) && !defined(WIN32)
 #define WIN32
+#endif
+// }
+
+// disable MSVC warnings {
+#if defined(_WIN32)
+#pragma warning(disable:4334)
+#pragma warning(disable:4309)
+#pragma warning(disable:4267)
+#pragma warning(disable:4244)
+#pragma warning(disable:4101)
+#pragma warning(disable:4800)
+#pragma warning(disable:4065)
+#pragma warning(disable:4018)
 #endif
 // }
 
@@ -479,7 +492,7 @@ extern "C" void bz_internal_error(int errcode) {
 #define KB KB2
 #define MB MB2
 #define _7Z_TYPES
-#include "deps/libcsc/Types.h"
+#include "deps/libcsc/csc_types.h"
 #include "deps/libcsc/csc_analyzer.h"
 #include "deps/libcsc/csc_coder.h"
 #include "deps/libcsc/csc_common.h"
@@ -505,6 +518,7 @@ extern "C" void bz_internal_error(int errcode) {
 #define CSCInstance CSCInstance_Enc
 #include "deps/libcsc/csc_enc.cpp"
 #include "deps/libcsc/csc_encoder_main.cpp"
+#include "deps/libcsc/csc_default_alloc.cpp"
 #endif
 
 #ifndef BUNDLE_NO_MCM
